@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="card">
+    <div class="card" id="birthdayCard">
       <div class="outside">
         <div class="front">
           <p>Happy Birthday</p>
@@ -24,16 +24,40 @@
           </div>
         </div>
         <div class="back">
-            <!-- Add the images here -->
+          <!-- Add the images here -->
           <img src="img/pic.jpg" alt="Birthday Image 1" class="image-1">
           <img src="img/pic2.jpg" alt="Birthday Image 2" class="image-2">
           <img src="img/pic3.jpg" alt="Birthday Image 3" class="image-3">
         </div>
       </div>
       <div class="inside">
-        <p>Chúc bạn tuổi mới bớt sồn lại nhá!!!!</p>
+        <p>Tuổi mới bớt sồn lại nhá!!!!</p>
         <h1>&#127873;</h1>
       </div>
     </div>
+    
+    <!-- Audio Element -->
+    <audio id="birthdayAudio1">
+      <source src="audio/birthday whistle sound effect!.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="birthdayAudio2">
+      <source src="audio/Happy Birthday Swing.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+      // Get the audio elements
+      const audio1 = document.getElementById('birthdayAudio1');
+      const audio2 = document.getElementById('birthdayAudio2');
+
+      // Play the first audio when the page is fully loaded
+      window.onload = function() {
+        audio1.play();
+      };
+
+      // Play the second audio when the first one ends
+      audio1.addEventListener('ended', function() {
+        audio2.play();
+      });
+    </script>
   </body>
 </html>
