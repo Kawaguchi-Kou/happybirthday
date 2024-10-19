@@ -37,11 +37,11 @@
     </div>
     
     <!-- Audio Element -->
-    <audio id="birthdayAudio1">
-      <source src="audio/birthday whistle sound effect!.mp3" type="audio/mpeg">
+    <audio id="birthdayAudio1" preload="auto">
+      <source src="audio/birthday%20whistle%20sound%20effect!.mp3" type="audio/mpeg">
     </audio>
-    <audio id="birthdayAudio2">
-      <source src="audio/Happy Birthday Swing.mp3" type="audio/mpeg">
+    <audio id="birthdayAudio2" preload="auto">
+      <source src="audio/Happy%20Birthday%20Swing.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -51,12 +51,16 @@
 
       // Play the first audio when the page is fully loaded
       window.onload = function() {
-        audio1.play();
+        audio1.play().catch(function(error) {
+          console.log('Autoplay was prevented:', error);
+        });
       };
 
       // Play the second audio when the first one ends
       audio1.addEventListener('ended', function() {
-        audio2.play();
+        audio2.play().catch(function(error) {
+          console.log('Autoplay was prevented:', error);
+        });
       });
     </script>
   </body>
